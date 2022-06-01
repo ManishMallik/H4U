@@ -1,4 +1,4 @@
-const fatSecretAPI = new require('fatsecret')('64fed318c0ef40dab5568f3561478262', '3e66579ce09a45848c832a35c531dc27');
+const fatSecretAPI = new require('fatsecret')('My Key', 'Secret');
 const express = new require('express');
 const app = express();
 
