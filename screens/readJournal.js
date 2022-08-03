@@ -4,9 +4,8 @@ import { Appbar } from 'react-native-paper';
 import { useRoute } from '@react-navigation/native';
 import Styles from "../styles.json";
 
-const Fitness = ({navigation}) =>{
-  foodCurDate = true;
-  const route = useRoute();
+const ReadJournal = ({navigation}) =>{
+    const route = useRoute();
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
     var curDate = route.params.date;
     var month = route.params.date.getMonth();
@@ -23,18 +22,17 @@ const Fitness = ({navigation}) =>{
         formatDate = months[month] + " " + day + ", " + year;
         setDisplay(formatDate);
     }
-
-    const[count, setCount] = useState(myVar);
   
     const [, setDisplay] = useState(formatDate);
     return (
         <View style={styles.container}>
           <View>
           <Appbar.Header style={styles.appBarColor}>
-            <Appbar.Content title="Fitness"
+            <Appbar.BackAction color="#FFFFFF" onPress={() => {navigation.navigate("StartScreen"), {date: curDate}}}/>
+            <Appbar.Content title="My Journal"
               //subtitle={<Text style={{textDecorationLine: 'underline'}}>{formatDate}</Text>} 
               color="#FFFFFF"
-              />
+            />
           </Appbar.Header>
           </View>
           <View style={{padding: 20}}></View>
@@ -42,12 +40,12 @@ const Fitness = ({navigation}) =>{
             <TouchableOpacity style={styles.button} onPress={() => setNewDate(-1)}>
                 <Image style={styles.tinyLogo} source={require("../assets/leftArrow.png")}/>
             </TouchableOpacity>
-            <Text style={{fontSize: 20, paddingHorizontal: 10, textDecorationLine: 'underline', color: "#00F"}} 
-              onPress={() => {navigation.navigate(
+            <Text style={{fontSize: 20, paddingHorizontal: 10, textDecorationLine: 'underline', color: "#00F"}}
+                onPress={() => {navigation.navigate(
                 "CalendarPicker",
                 {
                   date: curDate,
-                  screen: "FitnessScreen"
+                  screen: "ReadEntry"
                 }
               )}}>
               {formatDate}
@@ -67,33 +65,18 @@ const Fitness = ({navigation}) =>{
                   //textAlign: 'center',
                   padding: 10,
                 }}>
-                  Your statistics will be here {'\n\n'}
-                  You have worked out {count} times a week.{'\n\n'}
-                  Total time exercised: 180 minutes{'\n\n'}
-                  Total calories burned: 400 calories{'\n\n'}
-                  Running time: 60 minutes{'\n\n'}
-                  Running miles total: 8 miles{'\n\n'}
-                  Weightlifting time: 120 minutes{'\n\n'}
-                  Dumbbell bench press: 45, 55, and 55 lbs in 8, 10, and 10 reps{'\n\n'}
-                  Barbell Curls: 70, 70 lbs in 7, 10 reps{'\n\n'}
-                  Total time exercised: 120 minutes{'\n\n'}
-                  Total time exercised: 120 minutes{'\n\n'}
-                  Total time exercised: 120 minutes
-
-                  
+                    This is your journal
                 </Text>
               </View>
             </ScrollView>
             
             <Button
-              onPress={() => navigation.navigate('FitnessEntry')}
-              title={"Enter your workouts"}
+              onPress={() => navigation.navigate('AddEntry')}
+              title={"Add/Edit Your Entry"}
             />
 
-            <Button
-              onPress={() => navigation.navigate('FitnessGraph')}
-              title={"View your reports"}
-            />
+            
+
           </View>
         </View>
     );
@@ -116,14 +99,16 @@ const styles = StyleSheet.create({
   },
 
   button: {
+    //backgroundColor: '#859a9b',
     padding: 10,
   },
   
   countContainer: {
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center",  
     //padding: 10,
+    //flex: 1,
+    flexDirection: "row",
     width: '100%',
   },
 
@@ -144,10 +129,11 @@ const styles = StyleSheet.create({
     //alignItems: "center",
     textAlign: "center"
   },
+
   tinyLogo: {
     width: 20,
     height: 20,
   },
 });
 
-export default Fitness;
+export default ReadJournal;

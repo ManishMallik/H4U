@@ -1,0 +1,126 @@
+{
+    "firstName": "Manish",
+    "lastName": "Mallik",
+    "username": "mkm2003",
+    "password": "Stfu",
+    "birthday": "February 8, 2003",
+    "age": 19,
+    "gender": "Male",
+    "currentWeight": 136.4,
+    "currentHeight": 68.0,
+    "activity": "Active",
+    "personalGoals": [
+        { "id": 1, "name": "Bench press 60 lbs", "boxState": "check-square"},
+        { "id": 2, "name": "Hammer Curl 35 lbs", "boxState": "check-square"},
+        { "id": 3, "name": "Leg Curl 100 lbs", "boxState": "square-o"}
+    ],
+    "dailyInformation": [
+        {
+            "date": "06/01/2003",
+            "weight": 134.0,
+            "height": 67.0,
+            "totalCalories": 7500,
+            "totalCarbs": 3000,
+            "totalProtein": 2000,
+            "totalFat": 2500,
+            "food": [
+                {
+                    "foodName": "apple",
+                    "foodCal": 140,
+                    "meal": "breakfast",
+                    "carbohydrate": 600,
+                    "protein": 500,
+                    "fat": 100,
+                    "quantity": 2
+                }
+            ],
+            "breakfast":{
+                "food": [
+                    {
+                        "foodName": "apple",
+                        "foodCal": 140,
+                        "carbohydrate": 600,
+                        "protein": 500,
+                        "fat": 100,
+                        "quantity": 2
+                    },
+                    {
+
+                    }
+                ],
+                "carbohydrate": 600,
+                "protein": 500,
+                "fat": 100, 
+                "tCalories": 1200,
+                "eaten": true,
+                "noEatenReason": ""
+            },
+            "lunch":{
+                "food": [
+
+                ],
+                "carbohydrate": 1200,
+                "protein": 1000,
+                "fat": 100, 
+                "tCalories": 1200,
+                "eaten": true,
+                "noEatenReason": ""
+            },
+            "dinner":{
+                "food": [
+                    
+                ],
+                "carbohydrate": 500,
+                "protein": 800,
+                "fat": 500, 
+                "tCalories": 1200,
+                "eaten": true,
+                "noEatenReason": ""
+            },
+            "snacks":{
+                "food": [
+                    
+                ],
+                "carbohydrate": 600,
+                "protein": 0,
+                "fat": 50, 
+                "tCalories": 1200,
+                "eaten": true,
+                "noEatenReason": ""
+            },
+            "exercises": [
+                {
+                    "exerciseType": "Running",
+                    "totalTime": 120,
+                    "totalCal": 500,
+                    "specificWorkouts": [
+                        {
+                            "information": "Warmup"
+                        },
+                        {
+                            "information": "10x400 w/ 1 min rest"
+                        }
+                    ]
+                },
+                {
+                    "exerciseType": "Weightlifting",
+                    "totalTime": 120,
+                    "totalCal": 500,
+                    "specificWorkouts": [
+                        {
+                            "information": "Barbell Curls: 70 lbs for 7, 70 lbs for 9"
+                        },
+                        {
+                            "information": "Hammer Curls: 30 lbs for 10, 30 lbs for 10"
+                        }
+                    ]
+                }
+            ],
+            "journalEntry": {
+                "content": "Today was great, I loved it. I met my goals and I will continue to be better than ever",
+                "score": 0.923
+            }
+            
+        }
+    ]
+}

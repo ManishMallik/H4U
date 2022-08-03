@@ -7,6 +7,7 @@ import Home from "./home";
 import FoodScreen from "./food";
 import Fitness from "./fitness";
 import Reports from "./reports";
+import Styles from "../styles.json";
 import { Colors } from "react-native-paper";
 
 
@@ -20,34 +21,41 @@ const LoggedOut = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.info}>
-                Hello! Please sign in or create an account.
+            <Text style={styles.title}>
+                H4U
             </Text>
-            <TextInput 
-                style={styles.input}
-                onChangeText={onChangeText1}
-                value={text1}
-                placeholder="Username"
-            />
-            
-            <TextInput 
-                style={styles.input}
-                onChangeText={onChangeText2}
-                value={text2}
-                placeholder="Password"
-            />
+            <View style={styles.subContainer}>
+                <Text style={styles.info}>
+                    Hello! Please sign in or create an account.
+                </Text>
+                <TextInput 
+                    style={styles.input}
+                    onChangeText={onChangeText1}
+                    value={text1}
+                    placeholder="Username"
+                />
+                
+                <TextInput 
+                    style={styles.input}
+                    onChangeText={onChangeText2}
+                    value={text2}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                />
 
-            <Button
-                title="Sign In"
-                color={Colors.blue}
-                onPress={() => navigation.navigate("Logged In")}
-            />
+                <Button
+                    title="Sign In"
+                    color={Colors.blue}
+                    onPress={() => navigation.navigate("Logged In")}
+                />
 
-            <Button
-                title="Sign Up"
-                color={Colors.blue}
-                onPress={() => navigation.navigate("Create User")}
-            />
+                <Button
+                    title="Sign Up"
+                    color={Colors.blue}
+                    onPress={() => navigation.navigate("Create User")}
+                />
+
+            </View>
         </View>
     ); 
 }
@@ -58,7 +66,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: "center",
-      backgroundColor: "#00BB00",
+      backgroundColor: "#FFF",
       paddingHorizontal: 10
     },
     input: {
@@ -74,5 +82,21 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: Colors.white,
         padding: 20
-    }
+    },
+    title: {
+        fontWeight: "bold",
+        fontSize: 50,
+        textAlign: "center",
+        color: "#0B0",
+        padding: 20
+    },
+    subContainer: {
+        //alignItems: "center",
+        backgroundColor: "#00BB00",
+        justifyContent: "center",  
+        padding: 10,
+        borderRadius: 20,
+        //width: '100%',
+        //height: '30%',
+    },
 });

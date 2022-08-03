@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, Button, View, Dimensions} from "react-native";
+import { StyleSheet, Text, Button, View, Dimensions, ScrollView} from "react-native";
 import { Appbar } from 'react-native-paper';
 import {
   LineChart,
@@ -9,6 +9,8 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+
+import Styles from "../styles.json";
 
 const Reports = ({navigation}) =>{
 
@@ -62,27 +64,63 @@ const Reports = ({navigation}) =>{
   };
     return (
       <View style={styles.container}>
-        <View style={styles.appBar}>
+        <View>
           <Appbar.Header style={styles.appBarColor}>
-            <Appbar.BackAction color="#FFFFFF" onPress={() => {navigation.navigate("Home")}}/>
             <Appbar.Content title="Health Reports" color="#FFFFFF"/>
           </Appbar.Header>
         </View>
 
-        <View style={styles.countContainer}>
-          <Text>This will contain your health reports</Text>
-          <PieChart
-            data={data}
-            width={Dimensions.get("screen").width}
-            height={150}
-            chartConfig={chartConfig}
-            accessor={"population"}
-            backgroundColor={"transparent"}
-            paddingLeft={"-3"}
-            center={[10, 10]}
-            //absolute will display the population number. Without absolute, you get to see percentage number
-          />
-        </View>
+        <ScrollView style={styles.countContainer}>
+          <View style={{alignItems: "center", justifyContent: "center",  }}>
+            <View style={{padding: 20}}></View>
+              <Text>This will contain your health reports</Text>
+              <PieChart
+                data={data}
+                width={Dimensions.get("screen").width}
+                height={150}
+                chartConfig={chartConfig}
+                accessor={"population"}
+                backgroundColor={"transparent"}
+                //paddingLeft={"-3"}
+                center={[10, 10]}
+                //absolute will display the population number. Without absolute, you get to see percentage number
+              />
+              <PieChart
+                data={data}
+                width={Dimensions.get("screen").width}
+                height={150}
+                chartConfig={chartConfig}
+                accessor={"population"}
+                backgroundColor={"transparent"}
+                //paddingLeft={"-3"}
+                center={[10, 10]}
+                //absolute will display the population number. Without absolute, you get to see percentage number
+              />
+              <PieChart
+                data={data}
+                width={Dimensions.get("screen").width}
+                height={150}
+                chartConfig={chartConfig}
+                accessor={"population"}
+                backgroundColor={"transparent"}
+                //paddingLeft={"-3"}
+                center={[10, 10]}
+                //absolute will display the population number. Without absolute, you get to see percentage number
+              />
+              <Text>This will contain your health reports</Text>
+              <PieChart
+                data={data}
+                width={Dimensions.get("screen").width}
+                height={150}
+                chartConfig={chartConfig}
+                accessor={"population"}
+                backgroundColor={"transparent"}
+                //paddingLeft={"-3"}
+                center={[10, 10]}
+                //absolute will display the population number. Without absolute, you get to see percentage number
+              />
+          </View>
+        </ScrollView>
       </View>
     );
 }
@@ -97,7 +135,6 @@ const styles = StyleSheet.create({
 
   appBar: {
     paddingHorizontal: 0,
-    height: '18%',
   },
 
   appBarColor: {
@@ -105,7 +142,7 @@ const styles = StyleSheet.create({
   },
   
   countContainer: {
-    alignItems: "center",
+    //alignItems: "center",
     //justifyContent: "center",  
     //padding: 10,
   },

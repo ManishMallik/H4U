@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TextInput, View, Button} from "react-native";
+import { StyleSheet, Text, TextInput, View, Button, ScrollView} from "react-native";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SelectDropdown from "react-native-select-dropdown";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from "./home";
 import FoodScreen from "./food";
 import Fitness from "./fitness";
 import Reports from "./reports";
+import Styles from "../styles.json";
 import { Colors } from "react-native-paper";
 
 
 //const Stack = createNativeStackNavigator();
 
+const gender = ["Male", "Female", "Non-Binary"];
 
 const CreateUser = ({navigation}) => {
 
@@ -26,6 +30,7 @@ const CreateUser = ({navigation}) => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.subContainer}>
             <Text style={styles.info}>
                 Please enter the following information
             </Text>
@@ -46,51 +51,74 @@ const CreateUser = ({navigation}) => {
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText3}
                 value={firstName}
                 placeholder="First Name"
             />
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText4}
                 value={lastName}
                 placeholder="Last Name"
             />
+            
+            <View style={{padding: 5}}></View>
+
+            <SelectDropdown
+              data={gender}
+              defaultButtonText={"Select Your Gender"}
+              onSelect={(selectedItem, index) => {
+
+              }}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem
+              }}
+              rowTextForSelection={(item, index) => {
+                return item
+              }}
+              buttonStyle={{width: "80%", height: 30, borderWidth: 1}}
+              //dropdownStyle={{height: 90}}
+              rowStyle={{height: 30}}
+              renderDropdownIcon={({size, color}) => (<Icon name={"arrow-down"} color={color} size={size} />)}
+              dropdownIconPosition={'right'}
+            />
+
+            <View style={{padding: 5}}></View>
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText5}
                 value={weight}
                 placeholder="Weight (in pounds)"
             />
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText6}
                 value={height}
                 placeholder="Height (in inches, 1 ft = 12 inches)"
             />
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText7}
                 value={birthday}
                 placeholder="Birthday (mm/dd/yyyy)"
             />
 
             <TextInput 
                 style={styles.input}
-                onChangeText={onChangeText2}
+                onChangeText={onChangeText8}
                 value={religion}
                 placeholder="Religion"
             />
 
             <Button
                 title="Sign Up"
-                color="white"
                 onPress={() => navigation.navigate("Logged Out")}
             />
+            </View>
         </View>
     ); 
 }
@@ -101,14 +129,15 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: "center",
-      backgroundColor: "#00BB00",
+      backgroundColor: "#FFF",
       paddingHorizontal: 10
     },
     input: {
-      height: 40,
-      margin: 12,
+      width: "80%",
+      height: 30,
+      margin: 10,
       borderWidth: 1,
-      padding: 10,
+      padding: 5,
       backgroundColor: "white"
     },
     
@@ -117,5 +146,14 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: Colors.white,
         padding: 20
-    }
+    },
+    subContainer: {
+        alignItems: "center",
+        backgroundColor: Styles.barAndTitleColor,
+        justifyContent: "center",  
+        padding: 10,
+        borderRadius: 40,
+        //width: '100%',
+        //height: '30%',
+    },
 });

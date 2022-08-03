@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, Button, View, TextInput} from "react-native";
+import { StyleSheet, Text, Button, View, TextInput, Keyboard, TouchableWithoutFeedback, ScrollView} from "react-native";
 import { Appbar } from 'react-native-paper';
+import Styles from "../styles.json";
 
 const AddEntry = ({navigation}) =>{
     const [text1, onChangeText1] = React.useState(null);
@@ -9,28 +10,45 @@ const AddEntry = ({navigation}) =>{
         <View style={styles.container}>
           <View style={styles.appBar}>
             <Appbar.Header style={styles.appBarColor}>
-              <Appbar.BackAction color="#FFFFFF" onPress={() => {navigation.navigate("FoodScreen")}}/>
-              <Appbar.Content title="Food Diary" color="#FFFFFF"/>
+              <Appbar.BackAction color="#FFFFFF" onPress={() => {navigation.navigate("ReadEntry")}}/>
+              <Appbar.Content title="Writing Journal" color="#FFFFFF"/>
             </Appbar.Header>
           </View>
 
-          <View style={styles.countContainer}>
-            <Text>Select one of the following meals to view your diary and reports</Text>
-          </View>
+          <ScrollView>
+            <View style={styles.countContainer}>
+              <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}> 
+                  <View style={{padding: 20, width: "100%"}}>  
+                  </View>
+              </TouchableWithoutFeedback>
+              
+              <Text>Enter your thoughts and feelings about today.</Text>
 
-          <TextInput
-            placeholder="Your Placeholder"
-            onChangeText={onChangeText1}
-            style={styles.input}
-            editable={true}
-            multiline={true}
-            value={text1}
-            />
+              <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}> 
+                  <View style={{padding: 20, width: "100%"}}>  
+                  </View>
+              </TouchableWithoutFeedback>
 
-        <Button
-            onPress={() => navigation.navigate("FoodScreen")}
-            title={"Submit"}
-          />
+              <TextInput
+                placeholder="Your Placeholder"
+                onChangeText={onChangeText1}
+                style={styles.input}
+                editable={true}
+                multiline={true}
+                value={text1}
+              />
+
+              <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}> 
+                  <View style={{padding: 20, width: "100%"}}>  
+                  </View>
+              </TouchableWithoutFeedback>
+
+              <Button
+                onPress={() => navigation.navigate("StartScreen")}
+                title={"Submit"}
+              />
+            </View>
+          </ScrollView>
           
           
         </View>
@@ -47,7 +65,8 @@ const styles = StyleSheet.create({
 
     input: {
         //height: "flex",
-        maxHeight: "50%",
+        //maxHeight: "50%",
+        width: "80%",
         margin: 12,
         borderWidth: 1,
         padding: 10,
@@ -55,11 +74,11 @@ const styles = StyleSheet.create({
         //textAlign: "center",
         alignItems: "center",
         justifyContent: "center",
-      },
+    },
   
     appBar: {
       paddingHorizontal: 0,
-      height: '20%',
+      //height: '20%',
     },
   
     appBarColor: {
@@ -78,7 +97,7 @@ const styles = StyleSheet.create({
       //justifyContent: "center",  
       //padding: 10,
       width: '100%',
-      height: '10%',
+      //height: '10%',
     },
   
     textBase: {

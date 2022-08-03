@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Home from "./home";
-import FoodScreen from "./food";
-import FoodNav from "./foodNavigation";
-import Fitness from "./fitness";
+import FoodNav from "../navigationFiles/foodNavigation";
+import FitNav from "../navigationFiles/fitnessNavigation";
 import Reports from "./reports";
+import UserNav from "../navigationFiles/profileNavigation";
 
 //const Stack = createNativeStackNavigator();
 
@@ -18,10 +20,41 @@ const LoggedIn = () => {
   return (
       //When users are logged in, there will be different screens to navigate
       <Tab.Navigator screenOptions={{headerShown: false}}>
-        <Tab.Screen name="Home" component={Home} options={{headerShown: false}}/>
-        <Tab.Screen name="Food" component={FoodNav} options={{headerShown: false}}/>
-        <Tab.Screen name="Fitness" component={Fitness} options={{headerShown: false}}/>
-        <Tab.Screen name="Reports" component={Reports} options={{headerShown: false}}/>
+        <Tab.Screen 
+          name="Home" 
+          component={Home}
+          options={{
+            tabBarIcon: ({size, color}) => (<Icon name={"home"} color={color} size={size} />)
+          }}
+        />
+        <Tab.Screen 
+          name="Food" 
+          component={FoodNav} 
+          options={{
+            tabBarIcon: ({size, color}) => (<Icon name={"fastfood"} color={color} size={size} />)
+          }}
+        />
+        <Tab.Screen 
+          name="Fitness" 
+          component={FitNav} 
+          options={{
+            tabBarIcon: ({size, color}) => (<Icon name={"fitness-center"} color={color} size={size} />)
+          }}
+        />
+        <Tab.Screen 
+          name="Reports" 
+          component={Reports} 
+          options={{
+            tabBarIcon: ({size, color}) => (<Icon name={"pie-chart"} color={color} size={size} />)
+          }}
+        />
+        <Tab.Screen 
+          name="Me" 
+          component={UserNav} 
+          options={{
+            tabBarIcon: ({size, color}) => (<Icon name={"person"} color={color} size={size} />)
+          }}
+        />
       </Tab.Navigator>
   ); 
 }
